@@ -24,7 +24,16 @@ public class LuceneTest {
         Article article = new Article(1, "Lucene全文检索框架",
                 "Lucene如果信息检索系统在用户出了检索请求后再去网上找答案", "田守枝");
 
+
+
         Document doc = new Document();
+        doc.add(new LongField("id", article.getId(), Field.Store.YES));
+        doc.add(new StringField("author", article.getAuthor(), Field.Store.YES));
+        doc.add(new TextField("title", article.getTitle(), Field.Store.YES));
+        doc.add(new TextField("content", article.getContent(), Field.Store.YES));
+
+
+        Document doc2 = new Document();
         doc.add(new LongField("id", article.getId(), Field.Store.YES));
         doc.add(new StringField("author", article.getAuthor(), Field.Store.YES));
         doc.add(new TextField("title", article.getTitle(), Field.Store.YES));
@@ -36,6 +45,7 @@ public class LuceneTest {
         IndexWriterConfig indexWriterConfig=new IndexWriterConfig(Version.LATEST,analyzer);
         IndexWriter indexWriter=new IndexWriter(directory,indexWriterConfig);
         indexWriter.addDocument(doc);
+        indexWriter.addDocument(doc2);
         indexWriter.close();
     }
 }
