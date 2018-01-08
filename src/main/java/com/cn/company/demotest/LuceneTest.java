@@ -1,4 +1,4 @@
-package com.cn.company;
+package com.cn.company.demotest;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;

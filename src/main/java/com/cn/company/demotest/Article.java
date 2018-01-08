@@ -1,4 +1,4 @@
-package com.cn.company;
+package com.cn.company.demotest;
 
 /**
  * Created with IntelliJ IDEA
